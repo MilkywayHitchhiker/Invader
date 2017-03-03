@@ -41,12 +41,13 @@ bool Player::Action(void)
 
 void Player::Draw (void)
 {
-	pScreen->Sprite_Draw (PosX,PosY,charactor,sizeof(charactor));
-	
 	//널문자 제거를 위한 사이즈 -1
 	pScreen->Sprite_txt (1, 22, SelectMissle1, sizeof (SelectMissle1) - 1);
 	pScreen->Sprite_txt (10, 22, SelectMissle2, sizeof (SelectMissle2) - 1);
 	
+	//플레이어를 뒤에 Draw함으로써 문자 bar와 곂쳤을 경우 플레이어를 상단에 보여주게 된다.
+	pScreen->Sprite_Draw (PosX, PosY, charactor, sizeof (charactor));
+
 	return;
 }
 
